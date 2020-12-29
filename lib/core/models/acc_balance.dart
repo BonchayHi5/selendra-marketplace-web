@@ -1,34 +1,20 @@
 class Balance {
-  Balance({this.data});
-
-  Data data;
-
-  factory Balance.fromMap(Map<String, dynamic> json) => Balance(
-        data: Data.fromMap(json["data"]),
-      );
-}
-
-class Data {
-  Data({
-    this.timestamp,
-    this.balance,
-    this.otherassets,
+  Balance({
+    this.token,
+    this.symbol,
   });
 
-  String timestamp;
-  String balance = '';
-  String otherassets;
+  String token;
+  String symbol;
 
-  factory Data.fromMap(Map<String, dynamic> json) => Data(
-        timestamp: json["timestamp"],
-        balance: json["balance"],
-        otherassets: json["otherassets"],
+  factory Balance.fromJson(Map<String, dynamic> json) => Balance(
+        token: json["token"],
+        symbol: json["symbol"],
       );
 
-  Map<String, dynamic> toMap() => {
-        "timestamp": timestamp,
-        "balance": balance,
-        "otherassets": otherassets,
+  Map<String, dynamic> toJson() => {
+        "token": token,
+        "symbol": symbol,
       };
 }
 

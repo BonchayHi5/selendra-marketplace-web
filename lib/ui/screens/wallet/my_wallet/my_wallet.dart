@@ -76,7 +76,7 @@ class WalletMobile extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
                         child: Text(
-                          '${mBalance.data.balance}',
+                          '${mBalance.token}',
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
                           style: TextStyle(

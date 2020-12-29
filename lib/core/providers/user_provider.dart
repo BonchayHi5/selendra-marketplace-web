@@ -260,12 +260,11 @@ class UserProvider with ChangeNotifier {
           if (responseBody.containsKey('error')) {
             alertText = responseBody['error']['message'];
           } else {
-            if (mBalance.data != null) mBalance.data.balance = '';
-            mBalance = Balance.fromMap(responseBody);
+            if (mBalance.token != null) mBalance.token = '';
+            mBalance = Balance.fromJson(responseBody);
 
             // Check Balance Retrieve NULL
-            if (mBalance.data != null)
-              wallets[0].amount = mBalance.data.balance;
+            if (mBalance.token != null) wallets[0].amount = mBalance.token;
             // notifyListeners();
           }
 

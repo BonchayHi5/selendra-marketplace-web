@@ -21,7 +21,16 @@ class FavoriteScreen extends StatelessWidget {
             Icons.favorite,
             color: kDefaultColor,
           )),
-      body: Body(),
+      body: Responsive(
+        mobile: Body(),
+        desktop: ReuseDesktop(
+          widget: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Body(),
+          ),
+        ),
+      ),
     );
   }
 }

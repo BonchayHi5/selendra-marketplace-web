@@ -240,7 +240,10 @@ class _ProfileFormState extends State<ProfileForm> {
             ),
             SizedBox(height: 10),
             Container(
-              margin: const EdgeInsets.all(30.0),
+              width: Responsive.isDesktop(context)
+                  ? 300
+                  : MediaQuery.of(context).size.width,
+              margin: EdgeInsets.all(30.0),
               child: ReuseButton.getItem(_lang.translate('save'), () {
                 _prefService.read('token').then(
                   (onValue) {
@@ -290,7 +293,9 @@ class _ProfileFormState extends State<ProfileForm> {
           maxLines: 1,
         ),
         trailing: Container(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: Responsive.isMobile(context)
+              ? MediaQuery.of(context).size.width / 2.5
+              : MediaQuery.of(context).size.width / 3,
           child: Align(
             alignment: Alignment.centerRight,
             child: Text(

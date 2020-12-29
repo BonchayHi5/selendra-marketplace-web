@@ -3,6 +3,8 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:selendra_marketplace_app/all_export.dart';
 import 'package:selendra_marketplace_app/ui/screens/wallet/my_wallet/wallet_list.dart';
 
+import '../../../../all_export.dart';
+
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -70,14 +72,10 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     var history = Provider.of<TrxHistoryProvider>(context);
     final userProvider = Provider.of<UserProvider>(context);
-    return Container(
-      child: _wallet(
-        history.trxHistoryList,
-        userProvider.mUser.wallet,
-      ),
-    );
+    mBalance.token = 'token';
+    return Text(mBalance.token);
     // WalletChoice(onGetWallet, showAlertDialog);
-    // mBalance.data == null
+    // mBalance.token == null
     //     ? Center(
     //         child: WalletChoice(onGetWallet, showAlertDialog),
     //       )
